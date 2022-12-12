@@ -1,0 +1,64 @@
+body {
+    font-family: 'Baloo 2', cursive;
+    margin: 0;
+    padding: 0;
+    color: black;
+    background-color: white;
+}
+
+
+
+.nearby u {
+    text-underline-offset: 7px;
+    text-decoration-color: #f26419;
+    text-decoration-thickness: 3px;
+}
+
+.orange {
+    border: 2px solid #f26419;
+    height: 100%;
+    background-color: #f26419;
+    color: white;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.header {
+    width: 80%;
+    height: 100px;
+    position: relative;
+    margin: 0 auto;
+}
+
+.dog_logo {
+    position: fixed;
+    top: 0;
+    height: 150px;
+    width: 150px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    z-index: 1;
+}
+
+.logo {
+    position: absolute;
+    font-size: 60px;
+    margin: auto;
+    font-weight: 700;
+    color: #f26419;
+}
+
+.nearby {
+    position: absolute;
+    font-weight: 700;
+    font-size: 20px;
+    top: 30px;
+    right: 0px;
+    margin: auto;
+}
+
+

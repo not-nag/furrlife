@@ -65,6 +65,21 @@ app.get("/success.ejs", function (req, res) {
   res.render("success");
 });
 
+app.get("/pets.ejs", function (req, res) {
+  connection.connect(function (err) {
+    if (err) {
+      return console.error("error : " + err.message);
+    }
+    var sql = "SELECT * FROM pet_listings";
+    connection.query(sql, function (err, result) {
+      if (err) {
+        return console.error("error : " + err.message);
+      }
+      res.render("pets", { data: result });
+    });
+  });
+});
+
 app.listen(3000, function () {
   console.log(__dirname);
 });
