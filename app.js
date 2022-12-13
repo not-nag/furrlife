@@ -14,6 +14,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(express.static("public"));
 
+var cur_city = "";
+var pet_type = "";
+
 var connection = mysql.createConnection({
   host: "localhost",
   user: "root",
@@ -38,7 +41,11 @@ app.post("/list.ejs", function (req, res) {
   var city = req.body.city;
   var contact_no = req.body.contact_no;
   var type = req.body.type;
-  var breed = req.body.breed;
+  if (req.body.breed != "") {
+    var breed = req.body.breed;
+  } else {
+    var breed = "N/A";
+  }
   var vaccinated = req.body.vaccinated;
   var photo = req.body.photo;
 
@@ -65,13 +72,23 @@ app.get("/success.ejs", function (req, res) {
   res.render("success");
 });
 
+app.get("/city.ejs", function (req, res) {
+  res.render("city");
+});
+
+app.post("/city.ejs", function (req, res) {
+  cur_city = req.body.city;
+  pet_type = req.body.type;
+  res.redirect("/pets.ejs");
+});
+
 app.get("/pets.ejs", function (req, res) {
   connection.connect(function (err) {
     if (err) {
       return console.error("error : " + err.message);
     }
-    var sql = "SELECT * FROM pet_listings";
-    connection.query(sql, function (err, result) {
+    var sql = "SELECT * FROM pet_listings WHERE CITY = ? AND TYPE = ?";
+    connection.query(sql, [cur_city, pet_type], function (err, result) {
       if (err) {
         return console.error("error : " + err.message);
       }

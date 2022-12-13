@@ -4,9 +4,15 @@ body {
     padding: 0;
     color: black;
     background-color: white;
+    overflow: hidden;
 }
 
 
+.center u {
+    text-underline-offset: 12px;
+    text-decoration-thickness: 8px;
+    text-decoration-color: #f26419;
+}
 
 .nearby u {
     text-underline-offset: 7px;
@@ -16,9 +22,9 @@ body {
 
 .orange {
     border: 2px solid #f26419;
+    height: 100%;
     background-color: #f26419;
     color: white;
-    height: max-content;
 }
 
 a {
@@ -31,6 +37,7 @@ a {
     height: 100px;
     position: relative;
     margin: 0 auto;
+
 }
 
 .dog_logo {
@@ -39,7 +46,7 @@ a {
     width: 250px;
     left: 0;
     right: 0;
-    margin: 0 auto;
+    margin: auto;
     z-index: 1;
 }
 
@@ -57,15 +64,21 @@ a {
     font-size: 20px;
     top: 20px;
     right: 0px;
-    margin: auto;
+
+}
+
+u{
+    text-underline-offset: 8px;
+    text-decoration-thickness: 6px;
+    text-decoration-color: #f26419;
 }
 
 
 .design {
     background-color: white;
     color: black;
-    height: 300px;
-    width: 920px;
+    height: 60vh;
+    width: 60vw;
     border: 10px solid black;
     border-top-left-radius: 37px 140px;
     border-top-right-radius: 23px 130px;
@@ -73,46 +86,40 @@ a {
     border-bottom-right-radius: 120px 24px;
     position: relative;
     margin: auto;
-    margin-top: 80px;
-}
-
-.design p{
-    margin: 0;
-    font-weight: bolder;
-    font-size: 25px;
-}
-
-.design p u{
-    text-underline-offset: 7px;
-    text-decoration-color: #f26419;
-    text-decoration-thickness: 3px;
-}
-
-.photo{
-    height: 280;
-    width: 300px;
-    position: absolute;
-    top: 8px;
-    left: 20px;
-}
-
-.details{
-    height: 280px;
-    width: 580px;
-    position: absolute;
-    top: 8px;
-    right: 0;
-    margin-top: 20px;
-}
-
-
-.none{
+    margin-top: 60px;
     text-align: center;
 }
 
-.none h1{
-    margin-top: 80px;
+.design h1{
+    margin-top: 100px;
+    font-size: 60px;
+    margin-bottom: 0;
 }
+
+.design form{
+    text-align: center;
+    margin-top: 0;
+}
+
+
+
+label {
+    font-size: 40px;
+    font-weight: bold;
+    width: 200px;
+}
+
+select{
+    height: 30px;
+}
+
+input{
+    height: 20px;
+    width: 20px;
+    font-size: 100px;
+}
+
+
 
 .button-50 {
     appearance: button;
