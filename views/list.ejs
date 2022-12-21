@@ -17,7 +17,7 @@
   <div class="design">
     <div class="formm">
       <h1><u>Enter the details</u></h1>
-      <form action="/list.ejs" method="post">
+      <form action="/list.ejs" enctype="multipart/form-data" method="post">
         <label for="name">Enter your name <sup>*</sup> : </label>
         <input type="text" name="name" required />
         <br />
@@ -295,6 +295,9 @@
           class="imagee"
           required
         />
+        <br />
+        <label for="passcode">Enter a password <sup>*</sup> : </label>
+        <input type="text" name="passcode" required />
         <br />
         <button class="button-50">SUBMIT</button>
       </form>

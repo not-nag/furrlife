@@ -64,7 +64,7 @@ a {
 .design {
     background-color: white;
     color: black;
-    height: 300px;
+    height: 360px;
     width: 920px;
     border: 10px solid black;
     border-top-left-radius: 37px 140px;
@@ -89,11 +89,17 @@ a {
 }
 
 .photo{
+    margin-left: 5px;
     height: 280;
     width: 300px;
     position: absolute;
     top: 8px;
     left: 20px;
+}
+
+.photo img{
+    max-width: 100%;
+    max-height: 100%;
 }
 
 .details{
@@ -126,7 +132,7 @@ a {
     cursor: pointer;
     display: inline-block;
     font-family: ITCAvantGardeStd-Bk, Arial, sans-serif;
-    font-size: 17px;
+    font-size: 20px;
     font-weight: 400;
     line-height: 20px;
     margin: 0 5px 10px 0;
@@ -139,6 +145,7 @@ a {
     -webkit-user-select: none;
     vertical-align: middle;
     white-space: nowrap;
+    margin-top: 13px;
 }
 
 .button-50:focus {
