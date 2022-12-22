@@ -12,6 +12,11 @@
     <br />
     <a href="#"><u>> Pet - care articles</u></a>
   </div>
+  <div class="successful_adoptions">
+    <a href="#"><u>> successful adoptions</u></a>
+    <br />
+    <a href="#"><u>> customer reviews</u></a>
+  </div>
 </div>
 <div class="orange">
   <div class="design">
@@ -287,7 +292,9 @@
         <input type="radio" name="vaccinated" value="Don't know" required />
         Don't know
         <br />
-        <label for="photo">Upload a photo of your pet <sup>*</sup> : </label>
+        <label for="photo"
+          >Upload a photo of your pet (1:1 ratio) <sup>*</sup> :
+        </label>
         <input
           type="file"
           name="photo"
@@ -297,7 +304,7 @@
         />
         <br />
         <label for="passcode">Enter a password <sup>*</sup> : </label>
-        <input type="text" name="passcode" required />
+        <input autocomplete="off" type="text" name="passcode" required />
         <br />
         <button class="button-50">SUBMIT</button>
       </form>
