@@ -9,6 +9,7 @@ const multer = require("multer");
 const { strictEqual } = require("assert");
 const { join } = require("path");
 const { request } = require("http");
+const { connect } = require("http2");
 
 const upload = multer({ storage: multer.memoryStorage() });
 
@@ -221,6 +222,38 @@ app.get("/articles.ejs", function (req, res) {
       res.render("articles", { data: result });
     });
   });
+});
+
+app.get("/reviews.ejs", function (req, res) {
+  connection.connect(function (err) {
+    if (err) {
+      return console.error("error : " + err.message);
+    }
+    var sql = "SELECT * FROM reviews ORDER BY ID DESC";
+    connection.query(sql, function (err, result) {
+      if (err) {
+        return console.error("error : " + err.message);
+      }
+      res.render("reviews", { data: result });
+    });
+  });
+});
+
+app.post("/reviews.ejs", function (req, res) {
+  var name = req.body.name;
+  var comment = req.body.comments;
+  connection.connect(function (err) {
+    if (err) {
+      return console.error("error : " + err.message);
+    }
+    var sql = "INSERT INTO reviews(NAME, REVIEW) VALUES (?,?)";
+    connection.query(sql, [name, comment], function (err, result) {
+      if (err) {
+        return console.error("error : " + err.message);
+      }
+    });
+  });
+  res.redirect("/reviews.ejs");
 });
 
 app.listen(3000, function () {
