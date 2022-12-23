@@ -208,6 +208,21 @@ app.post("/city_vet.ejs", function (req, res) {
   });
 });
 
+app.get("/articles.ejs", function (req, res) {
+  connection.connect(function (err) {
+    if (err) {
+      return console.error("error : " + err.message);
+    }
+    var sql = "SELECT * FROM articles";
+    connection.query(sql, function (err, result) {
+      if (err) {
+        return console.error("error : " + err.message);
+      }
+      res.render("articles", { data: result });
+    });
+  });
+});
+
 app.listen(3000, function () {
   console.log(__dirname);
 });

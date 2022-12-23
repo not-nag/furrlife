@@ -1,0 +1,25 @@
+<link
+  href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&display=swap"
+  rel="stylesheet"
+/>
+<link rel="stylesheet" href="articles.css" />
+
+<%- include('header') %>
+
+<div class="orange">
+  <% if(data.length == 0){ %>
+    <div class="design none">
+      <h1 >Articles not yet written</h1>
+      <a href="index.ejs"><button class="button-50">GO TO HOME</button></a>
+    </div>
+    <div class="orange" style="height: 300px; margin-top: 0px;"></div>
+  <% } else { %> 
+  <% for(var i = 0; i<data.length; i++){ %> 
+  <div class="design">
+    <h1><u><%= data[i].HEADING  %></u> </h1>
+    <p><%= data[i].CONTENT %>  </p>
+  </div>
+  <% } %>
+  <div class="orange" style="height: 300px; margin-top: 0px;"></div>
+    <% } %>  
+</div>

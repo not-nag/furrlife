@@ -1,63 +1,61 @@
-body{
-    font-family: 'Baloo 2', cursive;  
+body {
+    font-family: 'Baloo 2', cursive;
     margin: 0;
     padding: 0;
     color: black;
     background-color: white;
-    overflow: hidden;
-} 
-
-
-.center u{
-    text-underline-offset: 12px;
-    text-decoration-thickness: 8px;
-    text-decoration-color: #f26419 ;
 }
 
-.nearby u{
-    text-underline-offset: 7px;
-    text-decoration-color:  #f26419 ;
-    text-decoration-thickness: 3px;
-}
 
-.successful_adoptions u{
+
+.nearby u {
     text-underline-offset: 7px;
     text-decoration-color: #f26419;
     text-decoration-thickness: 3px;
 }
 
-.orange{
-    border: 2px solid #f26419;
-    height: 100vh;
-    background-color: #f26419;
-    color: white;
-    position: relative;
+.design u{
+    text-underline-offset: 4px;
+    text-decoration-color: #f26419;
+    text-decoration-thickness: 5px;
 }
 
-a{
+.successful_adoptions u {
+    text-underline-offset: 7px;
+    text-decoration-color: #f26419;
+    text-decoration-thickness: 3px;
+}
+
+.orange {
+    border: 2px solid #f26419;
+    background-color: #f26419;
+    color: white;
+    height: max-content;
+}
+
+a {
     text-decoration: none;
     color: inherit;
 }
 
-.header{
+.header {
     width: 100%;
     height: 100px;
     position: relative;
     margin: 0 auto;
-    
 }
 
-.dog_logo{
+.dog_logo {
     position: absolute;
     height: 250px;
     width: 250px;
     left: 0;
     right: 0;
-    margin: auto;
+    margin: 0 auto;
     z-index: 1;
 }
 
-.logo{
+.logo {
     position: absolute;
     font-size: 60px;
     margin: auto;
@@ -66,16 +64,16 @@ a{
     left: 190px;
 }
 
-.nearby{
+.nearby {
     position: absolute;
     font-weight: 700;
     font-size: 20px;
     top: 20px;
     right: 260px;
-    
+    margin: auto;
 }
 
-.successful_adoptions{
+.successful_adoptions {
     position: absolute;
     font-weight: 700;
     font-size: 20px;
@@ -83,12 +81,11 @@ a{
     right: 30px;
 }
 
-
-.design{
+.design {
     background-color: white;
     color: black;
-    height: 60vh;
-    width: 60vw ;
+    height: max-content;
+    width: 960px;
     border: 10px solid black;
     border-top-left-radius: 37px 140px;
     border-top-right-radius: 23px 130px;
@@ -96,32 +93,62 @@ a{
     border-bottom-right-radius: 120px 24px;
     position: relative;
     margin: auto;
-    margin-top: 60px;
-}
-
-
-.center{
     margin-top: 80px;
-    font-weight: 700;
-    font-size: 90px;
+}
+
+h1{
+    font-size: 40px;
+    margin-left: 10px;
+    margin-bottom: 0;
+}
+
+
+
+.design p {
+    margin: 0;
+    font-weight: bolder;
+    font-size: 25px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    margin-top: 0px;
+}
+
+.design p u {
+    text-underline-offset: 7px;
+    text-decoration-color: #f26419;
+    text-decoration-thickness: 3px;
+}
+
+.photo {
+    margin-left: 5px;
+    height: 280;
+    width: 300px;
+    position: absolute;
+    top: 8px;
+    left: 20px;
+}
+
+.photo img {
+    height: 100%;
+    width: 100%;
+}
+
+.details {
+    height: 280px;
+    width: 580px;
+    position: absolute;
+    top: 8px;
+    right: 0;
+    margin-top: 20px;
+}
+
+
+.none {
     text-align: center;
 }
 
-.links{
-    height: 100vh;
-    width: 100vw;
-    text-align: center;
-}
-
-.to_adopt{
-    position: absolute;
-    right: 60%;  
-}
-
-.to_list{
-    position: absolute;
-    left: 58%;
-
+.none h1 {
+    margin-top: 80px;
 }
 
 .button-50 {
@@ -136,7 +163,7 @@ a{
     cursor: pointer;
     display: inline-block;
     font-family: ITCAvantGardeStd-Bk, Arial, sans-serif;
-    font-size: 17px;
+    font-size: 20px;
     font-weight: 400;
     line-height: 20px;
     margin: 0 5px 10px 0;
@@ -149,6 +176,7 @@ a{
     -webkit-user-select: none;
     vertical-align: middle;
     white-space: nowrap;
+    margin-top: 13px;
 }
 
 .button-50:focus {
@@ -175,3 +203,10 @@ a{
     }
 }
 
+.tick {
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
