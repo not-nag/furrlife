@@ -20,8 +20,8 @@
 </div>
 <div class="orange">
   <div class="design">
-    <h1><u>Find your new Best friend</u></h1>
-    <form action="/city.ejs" method="post">
+    <h1><u style="font-size: 50px">Find nearby vets or Shelter homes</u></h1>
+    <form action="/city_vet.ejs" method="post">
       <label for="city">Enter your city : </label>
       <!-- Karnataka-->
       <select id="city" name="city">
@@ -377,10 +377,6 @@
         <option value="Vettur">Vettur</option>
         <option value="Wayanad">Wayanad</option>
       </select>
-      <br />
-      <label for="type">Type of pet : </label>
-      <input type="radio" name="type" value="Cat" required />Cat
-      <input type="radio" name="type" value="Dog" required />Dog
       <br />
       <button class="button-50">SUBMIT</button>
     </form>

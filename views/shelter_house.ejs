@@ -1,0 +1,47 @@
+<link
+  href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&display=swap"
+  rel="stylesheet"
+/>
+<link rel="stylesheet" href="shelter_house.css" />
+
+<div class="header">
+  <a href="index.ejs" class="logo">furlife</a>
+  <img class="dog_logo" src="logo.png" alt="Dog" />
+  <div class="nearby">
+    <a href="#"><u>> nearby vets / Shelter homes</u></a>
+    <br />
+    <a href="#"><u>> Pet - care articles</u></a>
+  </div>
+  <div class="successful_adoptions">
+    <a href="successful_adoptions.ejs"><u>> successful adoptions</u></a>
+    <br />
+    <a href="#"><u>> customer reviews</u></a>
+  </div>
+</div>
+
+<div class="orange">
+  <% if(data.length == 0){ %>
+    <div class="design none">
+      <h1 >No vets / shelter house available at your location</h1>
+      <a href="index.ejs"><button class="button-50">GO TO HOME</button></a>
+    </div>
+    <div class="orange" style="height: 300px; margin-top: 0px;"></div>
+  <% } else { %> 
+  <% for(var i = 0; i<data.length; i++){ %> 
+  <div class="design">
+    <div class="photo">
+      <img src="vet_vector.jpg" alt="">
+    </div>
+    <div class="details">
+      <p><u>Shelter house name</u> : <%= data[i].SHELTER_NAME %></p>
+      <p><u>Vet's name</u> : <%= data[i].VETS_NAME %></p>
+      <p><u>Contact number</u> : <%= data[i].CONTACT_NO %> </p>
+      <p><u>Address</u> : <%= data[i].ADDRESS %> </p>
+      <p><u>Timings</u> : <%= data[i].TIMINGS %> </p>
+      <p><u>City</u> : <%= data[i].CITY %> </p>
+    </div>
+  </div>
+  <% } %>
+  <div class="orange" style="height: 300px; margin-top: 0px;"></div>
+    <% } %>  
+</div>

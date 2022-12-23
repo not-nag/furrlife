@@ -22,6 +22,8 @@ app.use(express.static("public"));
 var cur_city = "";
 var pet_type = "";
 var pet_id = 0;
+var vet_city = "";
+
 var connection = mysql.createConnection({
   host: "localhost",
   user: "root",
@@ -182,6 +184,26 @@ app.get("/successful_adoptions.ejs", function (req, res) {
         return console.error("error : " + err.message);
       }
       res.render("successful_adoptions", { data: result });
+    });
+  });
+});
+
+app.get("/city_vet.ejs", function (req, res) {
+  res.render("city_vet");
+});
+
+app.post("/city_vet.ejs", function (req, res) {
+  vet_city = req.body.city;
+  connection.connect(function (err) {
+    if (err) {
+      return console.error("error : " + err.message);
+    }
+    var sql = "SELECT * FROM shelter_homes WHERE UPPER(CITY) = UPPER(?)";
+    connection.query(sql, [vet_city], function (err, result) {
+      if (err) {
+        return console.error("error : " + err.message);
+      }
+      res.render("shelter_house", { data: result });
     });
   });
 });
