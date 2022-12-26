@@ -15,11 +15,12 @@
   </div>
   <div class="orange" style="height: 300px; margin-top: 0px"></div>
   <% } else { %> <% for(var i = 0; i<data.length; i++){ %>
-  <div class="design" style="height: 300px">
+  <div class="design" style="height: 330px">
     <div class="photo">
       <img src="data:img/png;base64,<%=data[i].PHOTO %>" alt="" />
     </div>
     <div class="details">
+      <p><u>Pet ID</u> : <%= data[i].ID %></p>
       <p><u>Owner's Name</u> : <%= data[i].NAME %></p>
       <p><u>City</u> : <%= data[i].CITY %></p>
       <p><u>Animal Type</u> : <%= data[i].TYPE %></p>

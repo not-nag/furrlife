@@ -97,7 +97,7 @@ app.get("/pets.ejs", function (req, res) {
       return console.error("error : " + err.message);
     }
     var sql =
-      "SELECT * FROM pet_listings WHERE CITY = ? AND TYPE = ? ORDER BY ID DESC";
+      "SELECT * FROM pet_listings WHERE CITY = ? AND TYPE = ? AND ADOPTED = 'NO' ORDER BY ID DESC";
     connection.query(sql, [cur_city, pet_type], function (err, result) {
       if (err) {
         return console.error("error : " + err.message);
@@ -160,7 +160,7 @@ app.post("/validate.ejs", function (req, res) {
             }
           );
         });
-        sql4 = "DELETE FROM pet_listings WHERE ID = ?";
+        sql4 = "UPDATE pet_listings SET ADOPTED = 'YES' WHERE ID = ?";
         connection.query(sql4, [pet_id], function (err, result) {
           if (err) {
             return console.error("error : " + err.message);
@@ -242,18 +242,68 @@ app.get("/reviews.ejs", function (req, res) {
 app.post("/reviews.ejs", function (req, res) {
   var name = req.body.name;
   var comment = req.body.comments;
+  var id = req.body.id;
   connection.connect(function (err) {
     if (err) {
       return console.error("error : " + err.message);
     }
-    var sql = "INSERT INTO reviews(NAME, REVIEW) VALUES (?,?)";
-    connection.query(sql, [name, comment], function (err, result) {
+    var sql = "SELECT ID FROM successful_adoptions WHERE ID = ?";
+    connection.query(sql, [id], function (err, resu) {
       if (err) {
         return console.error("error : " + err.message);
       }
+      if (resu.length == 0) {
+        res.redirect("/no_reviews.ejs");
+      } else {
+        cur_id = resu[0].ID;
+        var sql = "INSERT INTO reviews(NAME, REVIEW) VALUES (?,?)";
+        connection.query(sql, [name, comment], function (err, result) {
+          if (err) {
+            return console.error("error : " + err.message);
+          }
+        });
+        res.redirect("/reviews.ejs");
+      }
     });
   });
-  res.redirect("/reviews.ejs");
+});
+
+app.get("/no_reviews.ejs", function (req, res) {
+  res.render("no_reviews");
+});
+
+app.get("/volunteers.ejs", function (req, res) {
+  res.render("volunteers");
+});
+
+app.post("/volunteers.ejs", function (req, res) {
+  var n = req.body.name;
+  var c = req.body.city;
+  var contact = req.body.contact_no;
+  var s_id = req.body.shelter_id;
+  connection.connect(function (err) {
+    if (err) {
+      return console.log("error : " + err.message);
+    }
+    var sql = "SELECT ID FROM shelter_homes WHERE ID = ? AND CITY = ?";
+    connection.query(sql, [s_id, c], function (err, result) {
+      if (err) {
+        return console.log("error : " + err.message);
+      }
+      if (result.length == 0) {
+        res.render("inv_shelter");
+      } else {
+        var sql2 =
+          "INSERT INTO volunteers (NAME, CITY, CONTACT_NO, SHELTER_ID) VALUES (?,?,?,?)";
+        connection.query(sql2, [n, c, contact, s_id], function (err, result2) {
+          if (err) {
+            return console.log("error : " + err.message);
+          }
+          res.render("suc_volunteer", { data: s_id });
+        });
+      }
+    });
+  });
 });
 
 app.listen(3000, function () {

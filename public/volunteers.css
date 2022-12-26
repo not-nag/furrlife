@@ -4,9 +4,15 @@ body {
     padding: 0;
     color: black;
     background-color: white;
+    overflow: hidden;
 }
 
 
+.center u {
+    text-underline-offset: 12px;
+    text-decoration-thickness: 8px;
+    text-decoration-color: #f26419;
+}
 
 .nearby u {
     text-underline-offset: 7px;
@@ -22,9 +28,9 @@ body {
 
 .orange {
     border: 2px solid #f26419;
+    height: 100vh;
     background-color: #f26419;
     color: white;
-    height: max-content;
 }
 
 a {
@@ -37,6 +43,7 @@ a {
     height: 100px;
     position: relative;
     margin: 0 auto;
+
 }
 
 .dog_logo {
@@ -45,7 +52,7 @@ a {
     width: 250px;
     left: 0;
     right: 0;
-    margin: 0 auto;
+    margin: auto;
     z-index: 1;
 }
 
@@ -75,11 +82,12 @@ a {
     right: 30px;
 }
 
+
 .design {
     background-color: white;
     color: black;
-    height: 330px;
-    width: 920px;
+    height: 70vh;
+    width: 60vw;
     border: 10px solid black;
     border-top-left-radius: 37px 140px;
     border-top-right-radius: 23px 130px;
@@ -87,51 +95,44 @@ a {
     border-bottom-right-radius: 120px 24px;
     position: relative;
     margin: auto;
-    margin-top: 80px;
+    margin-top: 60px;
 }
 
-.design p {
-    margin: 0;
-    font-weight: bolder;
-    font-size: 25px;
+.formm {
+    width: fit-content;
+    margin: auto;
 }
 
-.design p u {
+u {
     text-underline-offset: 7px;
     text-decoration-color: #f26419;
-    text-decoration-thickness: 3px;
+    text-decoration-thickness: 6px;
 }
 
-.photo {
-    margin-left: 5px;
-    height: 280;
-    width: 300px;
-    position: absolute;
-    top: 8px;
-    left: 20px;
-}
-
-.photo img {
-    height: 100%;
-    width: 100%;
-}
-
-.details {
-    height: 280px;
-    width: 580px;
-    position: absolute;
-    top: 8px;
-    right: 0;
-    margin-top: 20px;
-}
-
-
-.none {
+h1 {
+    font-size: 50px;
     text-align: center;
+    margin-bottom: 0px;
 }
 
-.none h1 {
-    margin-top: 80px;
+
+input:not(.imagee) {
+    height: 20px;
+    border-radius: 8px;
+}
+
+label {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+form {
+    padding-left: 160px;
+}
+
+sup {
+    color: red;
+    font-size: 20px;
 }
 
 .button-50 {
@@ -146,10 +147,10 @@ a {
     cursor: pointer;
     display: inline-block;
     font-family: ITCAvantGardeStd-Bk, Arial, sans-serif;
-    font-size: 20px;
+    font-size: 17px;
     font-weight: 400;
     line-height: 20px;
-    margin: 0 5px 10px 0;
+    margin: 10px 5px 10px 0;
     overflow: visible;
     padding: 12px 40px;
     text-align: center;
@@ -159,7 +160,7 @@ a {
     -webkit-user-select: none;
     vertical-align: middle;
     white-space: nowrap;
-    margin-top: 13px;
+    margin-left: 115px;
 }
 
 .button-50:focus {
@@ -184,12 +185,4 @@ a {
     .button-50 {
         padding: 12px 50px;
     }
-}
-
-.tick {
-    height: 100px;
-    width: 100px;
-    position: absolute;
-    top: 10px;
-    right: 20px;
 }

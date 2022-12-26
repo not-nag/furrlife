@@ -13,6 +13,10 @@
       <br>
       <input autocomplete="off" type="text" name="name" id="">
       <br>
+      <label for="name">Enter your pet's ID that has been successfully adopted</label>
+      <br>      
+      <input autocomplete="off" type="text" name="id">  
+      <br>
       <label for="comments">Enter your review</label>
       <br>
       <textarea autocomplete="off" name="comments" cols="80" rows="10"></textarea>
@@ -30,6 +34,7 @@
   <% } else { %> 
   <% for(var i = 0; i<data.length; i++){ %> 
   <div class="design">
+    <h1 style="font-size: 20;"><u>Pet's ID : <%= data[i].ID %></u></h1>
     <h1><u>by : <%= data[i].NAME %></u></h1>
     <p><%= data[i].REVIEW %> </p>
   </div>
