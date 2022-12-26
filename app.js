@@ -256,14 +256,20 @@ app.post("/reviews.ejs", function (req, res) {
         res.redirect("/no_reviews.ejs");
       } else {
         cur_id = resu[0].ID;
-        var sql = "INSERT INTO reviews(NAME, REVIEW) VALUES (?,?)";
-        connection.query(sql, [name, comment], function (err, result) {
+        var sql = "INSERT INTO reviews(ID, NAME, REVIEW) VALUES (?,?,?)";
+        connection.query(sql, [id, name, comment], function (err, result) {
           if (err) {
             return console.error("error : " + err.message);
           }
         });
-        res.redirect("/reviews.ejs");
       }
+    });
+    var sql3 = "SELECT * FROM REVIEWS";
+    connection.query(sql3, function (err, resul) {
+      if (err) {
+        return console.error("error : " + err.message);
+      }
+      res.redirect("/reviews.ejs", { data: resul });
     });
   });
 });
