@@ -242,13 +242,13 @@ app.get("/reviews.ejs", function (req, res) {
 app.post("/reviews.ejs", function (req, res) {
   var name = req.body.name;
   var comment = req.body.comments;
-  var id = req.body.id;
+  var pet_id = req.body.id;
   connection.connect(function (err) {
     if (err) {
       return console.error("error : " + err.message);
     }
     var sql = "SELECT ID FROM successful_adoptions WHERE ID = ?";
-    connection.query(sql, [id], function (err, resu) {
+    connection.query(sql, [pet_id], function (err, resu) {
       if (err) {
         return console.error("error : " + err.message);
       }
@@ -256,20 +256,20 @@ app.post("/reviews.ejs", function (req, res) {
         res.redirect("/no_reviews.ejs");
       } else {
         cur_id = resu[0].ID;
-        var sql = "INSERT INTO reviews(ID, NAME, REVIEW) VALUES (?,?,?)";
-        connection.query(sql, [id, name, comment], function (err, result) {
+        var sql = "INSERT INTO reviews(PET_ID, NAME, REVIEW) VALUES (?,?,?)";
+        connection.query(sql, [cur_id, name, comment], function (err, result) {
           if (err) {
             return console.error("error : " + err.message);
           }
         });
+        var sql3 = "SELECT * FROM REVIEWS";
+        connection.query(sql3, function (err, result) {
+          if (err) {
+            return console.error("error : " + err.message);
+          }
+          res.redirect("/reviews.ejs");
+        });
       }
-    });
-    var sql3 = "SELECT * FROM REVIEWS";
-    connection.query(sql3, function (err, resul) {
-      if (err) {
-        return console.error("error : " + err.message);
-      }
-      res.redirect("/reviews.ejs", { data: resul });
     });
   });
 });
