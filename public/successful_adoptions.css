@@ -24,7 +24,7 @@ body {
     border: 2px solid #f26419;
     background-color: #f26419;
     color: white;
-    height: max-content;
+    height: 100vh;
 }
 
 a {
@@ -90,19 +90,19 @@ a {
     margin-top: 80px;
 }
 
-.design p{
+.design p {
     margin: 0;
     font-weight: bolder;
     font-size: 25px;
 }
 
-.design p u{
+.design p u {
     text-underline-offset: 7px;
     text-decoration-color: #f26419;
     text-decoration-thickness: 3px;
 }
 
-.photo{
+.photo {
     height: 280;
     width: 300px;
     position: absolute;
@@ -110,12 +110,12 @@ a {
     left: 20px;
 }
 
-.photo img{
+.photo img {
     height: 100%;
     width: 100%;
 }
 
-.details{
+.details {
     height: 280px;
     width: 580px;
     position: absolute;
@@ -125,11 +125,11 @@ a {
 }
 
 
-.none{
+.none {
     text-align: center;
 }
 
-.none h1{
+.none h1 {
     margin-top: 80px;
 }
 
@@ -185,7 +185,7 @@ a {
     }
 }
 
-.tick{
+.tick {
     height: 100px;
     width: 100px;
     position: absolute;

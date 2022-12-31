@@ -126,40 +126,6 @@ app.post("/validate.ejs", function (req, res) {
       }
       actual_pass = result[0].PASSCODE;
       if (given_pass == actual_pass) {
-        var sql2 = "SELECT * FROM pet_listings WHERE ID = ?";
-        connection.query(sql2, [pet_id], function (err, result) {
-          if (err) {
-            return console.error("error : " + err.message);
-          }
-          insert_id = result[0].ID;
-          insert_name = result[0].NAME;
-          insert_city = result[0].CITY;
-          insert_contact = result[0].CONTACT_NO;
-          insert_type = result[0].TYPE;
-          insert_breed = result[0].BREED;
-          insert_vaccinated = result[0].VACCINATED;
-          insert_photo = result[0].PHOTO;
-          sql3 =
-            "INSERT INTO successful_adoptions (ID, NAME, CITY, CONTACT_NO, TYPE, BREED, VACCINATED, PHOTO) VALUES (?,?,?,?,?,?,?,?) ";
-          connection.query(
-            sql3,
-            [
-              insert_id,
-              insert_name,
-              insert_city,
-              insert_contact,
-              insert_type,
-              insert_breed,
-              insert_vaccinated,
-              insert_photo,
-            ],
-            function (err, result) {
-              if (err) {
-                return console.error("error : " + err.message);
-              }
-            }
-          );
-        });
         sql4 = "UPDATE pet_listings SET ADOPTED = 'YES' WHERE ID = ?";
         connection.query(sql4, [pet_id], function (err, result) {
           if (err) {
@@ -179,7 +145,7 @@ app.get("/successful_adoptions.ejs", function (req, res) {
     if (err) {
       return console.error("error : " + err.message);
     }
-    var sql = "SELECT * FROM successful_adoptions";
+    var sql = "CALL adopted_data()";
     connection.query(sql, function (err, result) {
       if (err) {
         return console.error("error : " + err.message);

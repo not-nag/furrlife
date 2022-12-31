@@ -2,31 +2,30 @@
   href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&display=swap"
   rel="stylesheet"
 />
-<link rel="stylesheet" href="pets.css" />
+<link rel="stylesheet" href="successful_adoptions.css" />
 
 <%- include('header') %>
 
 
 <div class="orange">
-  <% if(data.length == 0){ %>
+  <% if(data[0].length == 0){ %>
   <div class="design none">
     <h1>We don't like showing off our success hehehe :P</h1>
     <a href="index.ejs"><button class="button-50">GO TO HOME</button></a>
   </div>
-  <div class="orange" style="height: 300px; margin-top: 0px"></div>
-  <% } else { %> <% for(var i = 0; i<data.length; i++){ %>
+  <% } else { %> <% for(var i = 0; i<data[0].length; i++){ %>
   <div class="design" style="height: 330px">
     <div class="photo">
-      <img src="data:img/png;base64,<%=data[i].PHOTO %>" alt="" />
+      <img src="data:img/png;base64,<%=data[0][i].PHOTO %>" alt="" />
     </div>
     <div class="details">
-      <p><u>Pet ID</u> : <%= data[i].ID %></p>
-      <p><u>Owner's Name</u> : <%= data[i].NAME %></p>
-      <p><u>City</u> : <%= data[i].CITY %></p>
-      <p><u>Animal Type</u> : <%= data[i].TYPE %></p>
-      <p><u>Breed</u> : <%= data[i].BREED %></p>
-      <p><u>Vaccinated ?</u> : <%= data[i].VACCINATED %></p>
-      <p><u>Owner's contact Number</u> : <%= data[i].CONTACT_NO %></p>
+      <p><u>Pet ID</u> : <%= data[0][i].ID %></p>
+      <p><u>Owner's Name</u> : <%= data[0][i].NAME %></p>
+      <p><u>City</u> : <%= data[0][i].CITY %></p>
+      <p><u>Animal Type</u> : <%= data[0][i].TYPE %></p>
+      <p><u>Breed</u> : <%= data[0][i].BREED %></p>
+      <p><u>Vaccinated ?</u> : <%= data[0][i].VACCINATED %></p>
+      <p><u>Owner's contact Number</u> : <%= data[0][i].CONTACT_NO %></p>
     </div>
     <img class="tick" src="tick_mark.webp" alt="" />
   </div>
