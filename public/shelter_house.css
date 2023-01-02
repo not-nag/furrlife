@@ -193,3 +193,29 @@ a {
     top: 10px;
     right: 20px;
 }
+
+.mobile {
+    display: none;
+}
+
+@media (max-width: 1366px),
+(max-height: 728px) {
+    .orange {
+        display: none;
+    }
+
+    .header {
+        display: none;
+    }
+
+    .mobile {
+        display: block;
+        width: max-content;
+        height: max-content;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%);
+    }
+}

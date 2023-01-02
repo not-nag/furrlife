@@ -8,6 +8,7 @@ body{
 } 
 
 
+
 .center u{
     text-underline-offset: 12px;
     text-decoration-thickness: 8px;
@@ -175,3 +176,25 @@ a{
     }
 }
 
+.mobile {
+    display: none;
+}
+
+@media (max-width: 1366px), (max-height: 728px){
+    .orange{
+        display: none;
+    }
+    .header{
+        display: none;
+    }
+    .mobile{
+        display: block;
+        width: max-content;
+        height: max-content;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%);
+    }
+}
