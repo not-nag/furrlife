@@ -24,7 +24,7 @@ body {
     border: 2px solid #f26419;
     background-color: #f26419;
     color: white;
-    height: fit-content;
+    height: 100vh;
 }
 
 a {
